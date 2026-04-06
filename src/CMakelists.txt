@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Название проекта
+project(DiceSimulation C)
+
+# Устанавливаем стандарт C
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+# Поиск библиотеки pthread
+find_package(Threads REQUIRED)
+
+# Создание исполняемого файла
+add_executable(main main.c)
+
+# Линовка с потоками и математической библиотекой (на всякий случай)
+target_link_libraries(main PRIVATE Threads::Threads m)
